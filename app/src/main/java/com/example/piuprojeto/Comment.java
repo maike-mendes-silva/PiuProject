@@ -48,6 +48,6 @@ public class Comment {
     }
 
     public String toString(){
-    	return "":
+    	return this.username + ": " + this.text:
     }
 }
