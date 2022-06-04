@@ -74,7 +74,7 @@ public class CommentManager {
         DatabaseReference currentRefComment = commentsNode.push();
         String key = currentRefComment.getKey();
 
-        Comment comment = new Comment(user.getUid(), key, user.getUSername(), text);
+        Comment comment = new Comment(user.getUid(), key, user.getUsername(), text);
         currentRefComment.setValue(comment);
     }
 
