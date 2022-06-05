@@ -28,15 +28,17 @@ public class AuthManager {
 	private FirebaseDatabase firebaseDatabase;
     private DatabaseReference usersNode;
 
-	public static User user = null;
+	public static User user = new User();
 
-	AuthManager(){
+	AuthManager(FirebaseDatabase firebaseDatabase){
+		this.firebaseDatabase = firebaseDatabase;
 		initFirebase();
 	}
 
 	private void initFirebase() {
 		this.auth = FirebaseAuth.getInstance();
-        this.firebaseDatabase = FirebaseDatabase.getInstance();
+        // firebaseDatabase = FirebaseDatabase.getInstance();
+        // firebaseDatabase.setPersistenceEnabled(true);
 
         this.usersNode = firebaseDatabase.getReference().child("users");
     }
@@ -47,15 +49,14 @@ public class AuthManager {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                 	FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                	User userLogin =  new User();
 
                 	usersNode.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
 			            @Override
 			            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-			                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-			                    User user = dataSnapshot1.getValue(User.class); 
-			                    userLogin.setUsername(user.getUsername());
-			                }
+			            	User userLogin = dataSnapshot.getValue(User.class); 
+		                    user.setUsername(userLogin.getUsername());
+
+		                    callbackAuth.onSucess();
 			            }
 
 			            @Override
@@ -63,10 +64,10 @@ public class AuthManager {
 			            }
 			        });
                 	
-                	userLogin.setUid(currentUser.getUid());
+                	user.setUid(currentUser.getUid());
 
-					setUser(userLogin);
-					callbackAuth.onSucess();
+					// setUser(userLogin);
+					
                 }
                 else {
                     callbackAuth.onFailure();
