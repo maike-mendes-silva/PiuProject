@@ -8,6 +8,8 @@ package com.example.piuprojeto;
 
 import androidx.annotation.NonNull;
 
+// import android.util.Log;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,7 +30,7 @@ public class CommentManager {
     User user;
     Boolean userExists = false;
 
-    public CommentManager() {
+    public CommentManager(FirebaseDatabase firebaseDatabase) {
         this.user = AuthManager.getUser();
 
         // Remover gambiarra e fazer um erro
@@ -36,13 +38,15 @@ public class CommentManager {
             this.userExists = true;
         }
         
+        this.firebaseDatabase = firebaseDatabase;
+
         initFirebase();
         subscribeQueryOnValueEventListener();
     }
 
     private void initFirebase() {
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase.setPersistenceEnabled(true);
+        // firebaseDatabase = FirebaseDatabase.getInstance();
+        // firebaseDatabase.setPersistenceEnabled(true);
 
         commentsNode = firebaseDatabase.getReference().child("comments");
     }
