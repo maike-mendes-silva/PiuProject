@@ -41,7 +41,7 @@ public class CommentManager {
         this.firebaseDatabase = firebaseDatabase;
 
         initFirebase();
-        subscribeQueryOnValueEventListener();
+        // subscribeQueryOnValueEventListener();
     }
 
     private void initFirebase() {
@@ -51,7 +51,7 @@ public class CommentManager {
         commentsNode = firebaseDatabase.getReference().child("comments");
     }
 
-    private void subscribeQueryOnValueEventListener() {
+/*    private void subscribeQueryOnValueEventListener() {
         Query queryAllComments = commentsNode;
 
         queryAllComments.addValueEventListener(new ValueEventListener() {
@@ -71,7 +71,7 @@ public class CommentManager {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-    }
+    }*/
 
     // CREATE, UPDATE, DELETE
     public void newComment(String text){
@@ -82,27 +82,27 @@ public class CommentManager {
         currentRefComment.setValue(comment);
     }
 
-    public void deleteComment(int index){
-        Comment comment = commentsUser.get(index);
-        commentsUser.clear();
+    public void deleteComment(Comment comment){
+        // Comment comment = commentsUser.get(index);
+        // commentsUser.clear();
 
         commentsNode.child(comment.getKey()).removeValue();
     }
 
-    public void editCommentText(int index, String text){
-        Comment comment = commentsUser.get(index);
-        commentsUser.clear();
+    public void editCommentText(Comment comment, String newText){
+        // Comment comment = commentsUser.get(index);
+        // commentsUser.clear();
 
-        comment.setText(text);
+        comment.setText(newText);
         commentsNode.child(comment.getKey()).setValue(comment);
     }
 
-    // READ
-    public ArrayList<Comment> getCommentsUser() {
-        return commentsUser;
-    }
+    // // READ
+    // public ArrayList<Comment> getCommentsUser() {
+    //     return commentsUser;
+    // }
 
-    public List<Comment> getAllComments(){
-        return commentsAll;
-    }
+    // public List<Comment> getAllComments(){
+    //     return commentsAll;
+    // }
 }
