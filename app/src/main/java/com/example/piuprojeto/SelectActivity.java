@@ -11,6 +11,6 @@ public class SelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Uma lista que quando clicar vai para listar todos os comentarios ou so do user.
+        // Uma lista que quando clicar vai para listar todos os comentarios, so do user ou para criar um novo
     }
 }
