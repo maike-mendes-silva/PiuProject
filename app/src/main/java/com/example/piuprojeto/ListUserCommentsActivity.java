@@ -19,10 +19,7 @@ public class ListUserCommentsActivity extends AppCompatActivity {
         DatabaseReference commentsNode = firebaseDatabase.getReference().child("comments");
         subscribeQueryOnValueEventListener(commentsNode);
 
-        // RecicleView usando o commentsUser como alimento
-        // Dentro do RecicleView será usado as funções de edição e deletar;
-
-        // Ou uma lista que quando clicar vai pruma tela com um TextInput desabilitado, tendo um
+        // Uma lista que quando clicar vai pruma tela com um TextInput desabilitado, tendo um
         // button para deletar outro para editar; cada um realizando a função necessaria
         // seria passado como info entre telas o Comment clicado.
 
