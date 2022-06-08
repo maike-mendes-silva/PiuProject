@@ -33,7 +33,7 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
 
         // Tres TextInput e um button
 
-        buttonCriar = findViewById(R.id.buttonLA);
+        buttonCriar = findViewById(R.id.buttonNUA);
 
         editTextName = findViewById(R.id.textInputEditTextNUA);
         editTextEmail = findViewById(R.id.textInputEditText2NUA);
