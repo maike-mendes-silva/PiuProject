@@ -3,6 +3,9 @@ package com.example.piuprojeto;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.app.ListActivity;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -12,14 +15,15 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.DatabaseReference;
 
-public class ListAllCommentsActivity extends AppCompatActivity {
+public class ListAllCommentsActivity extends ListActivity {
 
     ArrayList<Comment> commentsAll = new ArrayList<>();
+    ArrayAdapter<Comment> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.list_all_comments_activity);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseDatabase.setPersistenceEnabled(true);
@@ -28,7 +32,8 @@ public class ListAllCommentsActivity extends AppCompatActivity {
         subscribeQueryOnValueEventListener(commentsNode);
 
         // Lista normal com array adapter usando o commentsAll
-
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, commentsAll);
+        setListAdapter(adapter);
     }
 
     private void subscribeQueryOnValueEventListener(DatabaseReference commentsNode) {
