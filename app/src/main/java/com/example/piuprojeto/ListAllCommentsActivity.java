@@ -7,6 +7,7 @@ import android.app.ListActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.DatabaseReference;
+
+import java.util.ArrayList;
 
 public class ListAllCommentsActivity extends ListActivity {
 

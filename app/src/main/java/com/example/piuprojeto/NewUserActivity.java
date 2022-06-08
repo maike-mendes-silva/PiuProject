@@ -2,8 +2,10 @@ package com.example.piuprojeto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +23,9 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
     private EditText editTextName;
     private EditText editTextEmail;
     private EditText editTextPassword;
-    
+
+    Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -2,6 +2,7 @@ package com.example.piuprojeto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import android.view.View;
@@ -19,6 +20,8 @@ public class NewCommentActivity extends AppCompatActivity {
     private Button buttonCriar;
 
     private EditText editTextComment;
+
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +45,10 @@ public class NewCommentActivity extends AppCompatActivity {
         commentManager.newComment(text);
 
         Context context = getApplicationContext();
-        CharSequence text = "Piu criado!";
+        CharSequence textToast = "Piu criado!";
         int duration = Toast.LENGTH_SHORT;
 
-        Toast toast = Toast.makeText(context, text, duration);
+        Toast toast = Toast.makeText(context, textToast, duration);
         toast.show();
 
         sendToActivity(SelectActivity.class);

@@ -4,13 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class SelectActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.select_activity);
-
-        // Uma lista que quando clicar vai para listar todos os comentarios, so do user ou para criar um novo
+        setContentView(R.layout.login_activity);
     }
 }

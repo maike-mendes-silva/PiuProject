@@ -2,11 +2,14 @@ package com.example.piuprojeto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.ListActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
@@ -15,15 +18,20 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.DatabaseReference;
 
-public class ListUserCommentsActivity extends AppCompatActivity {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class ListUserCommentsActivity extends ListActivity {
 
     ArrayList<Comment> commentsUser = new ArrayList<>();
     ArrayAdapter<Comment> adapter;
 
+    Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_user_comments_activity);
+        setContentView(R.layout.list_user_commets_activity);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseDatabase.setPersistenceEnabled(true);
@@ -31,7 +39,7 @@ public class ListUserCommentsActivity extends AppCompatActivity {
         DatabaseReference commentsNode = firebaseDatabase.getReference().child("comments");
         subscribeQueryOnValueEventListener(commentsNode);
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, commentsAll);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, commentsUser);
         setListAdapter(adapter);
     }
 
@@ -60,7 +68,8 @@ public class ListUserCommentsActivity extends AppCompatActivity {
 
     private void sendToCommentActivity(Comment comment){
         intent = new Intent(ListUserCommentsActivity.this, UserCommentActivity.class);
-        intent.putExtra("comment", comment);
+        intent.putExtra("comment", (Serializable) comment);
+        // tem que seriavel
         startActivity(intent);
     }
 

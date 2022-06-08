@@ -2,6 +2,7 @@ package com.example.piuprojeto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,8 @@ public class UserCommentActivity extends AppCompatActivity implements View.OnCli
     private EditText editTextComment;
 
     private Comment comment;
+
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

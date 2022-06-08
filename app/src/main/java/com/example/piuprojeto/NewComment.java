@@ -13,7 +13,7 @@ public class NewComment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.new_comment_activity);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseDatabase.setPersistenceEnabled(true);
