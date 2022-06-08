@@ -3,15 +3,27 @@ package com.example.piuprojeto;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.app.ListActivity;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.google.firebase.database.FirebaseDatabase;
+
+import androidx.annotation.NonNull;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.DatabaseReference;
 
 public class ListUserCommentsActivity extends AppCompatActivity {
 
     ArrayList<Comment> commentsUser = new ArrayList<>();
+    ArrayAdapter<Comment> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.list_user_comments_activity);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseDatabase.setPersistenceEnabled(true);
@@ -19,10 +31,8 @@ public class ListUserCommentsActivity extends AppCompatActivity {
         DatabaseReference commentsNode = firebaseDatabase.getReference().child("comments");
         subscribeQueryOnValueEventListener(commentsNode);
 
-        // Uma lista que quando clicar vai pruma tela com um TextInput desabilitado, tendo um
-        // button para deletar outro para editar; cada um realizando a função necessaria
-        // seria passado como info entre telas o Comment clicado.
-
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, commentsAll);
+        setListAdapter(adapter);
     }
 
     private void subscribeQueryOnValueEventListener(DatabaseReference commentsNode) {
@@ -46,5 +56,18 @@ public class ListUserCommentsActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+    }
+
+    private void sendToCommentActivity(Comment comment){
+        intent = new Intent(ListUserCommentsActivity.this, UserCommentActivity.class);
+        intent.putExtra("comment", comment);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        sendToCommentActivity(commentsUser.get(position));
     }
 }
