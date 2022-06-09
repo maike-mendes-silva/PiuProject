@@ -10,7 +10,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PiuProjeto">
         <activity
-            android:name=".MainActivity"
+            android:name=".UserCommentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListAllCommentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListUserCommentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewCommentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
