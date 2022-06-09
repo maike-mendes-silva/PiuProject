@@ -28,7 +28,7 @@ public class UserCommentActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_activity);
+        setContentView(R.layout.user_comment_activity);
 
         // Dois TextInput e um button
 
