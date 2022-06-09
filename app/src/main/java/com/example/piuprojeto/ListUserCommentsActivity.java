@@ -34,7 +34,7 @@ public class ListUserCommentsActivity extends ListActivity {
         setContentView(R.layout.list_user_commets_activity);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase.setPersistenceEnabled(true);
+//        firebaseDatabase.setPersistenceEnabled(true);
 
         DatabaseReference commentsNode = firebaseDatabase.getReference().child("comments");
         subscribeQueryOnValueEventListener(commentsNode);

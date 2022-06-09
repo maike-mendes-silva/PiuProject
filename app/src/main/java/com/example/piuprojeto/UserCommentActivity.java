@@ -41,7 +41,7 @@ public class UserCommentActivity extends AppCompatActivity implements View.OnCli
         buttonEdit.setOnClickListener(this);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase.setPersistenceEnabled(true);
+//        firebaseDatabase.setPersistenceEnabled(true);
 
         commentManager =  new CommentManager(firebaseDatabase);
 

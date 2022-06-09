@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -42,9 +43,11 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
         buttonCriar.setOnClickListener(this);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase.setPersistenceEnabled(true);
+//        firebaseDatabase.setPersistenceEnabled(true);
 
         authManager =  new AuthManager(firebaseDatabase);
+
+        // authManager.newUser("maike", "maike.silva@estudante.ifms.edu.br", "123456");
     }
 
     public void actionCriar(){
@@ -56,11 +59,16 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
             return ;
         }
 
-        authManager.newUser(name, email, password, new CallbackAuth() {
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, name+email+password, duration);
+        toast.show();
+
+       CallbackAuth teste = new CallbackAuth(){
+
             @Override
             public void onSucess() {
-                // Mandar para login e toast de conta criada.
-
                 Context context = getApplicationContext();
                 CharSequence text = "Conta criada!";
                 int duration = Toast.LENGTH_LONG;
@@ -69,19 +77,21 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
                 toast.show();
 
                 sendToActivity(LoginActivity.class);
-            };
+            }
 
             @Override
-            public void onFailure(){
+            public void onFailure() {
                 // Toast de alguma coisa deu errada.
                 Context context = getApplicationContext();
-                CharSequence text = "Verifique os dados!";
+                CharSequence text = "Erro de conexão";
                 int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
-            };
-        });
+            }
+        };
+
+        authManager.newUser(name, email, password, teste);
     }
 
     private boolean validateInputs(String name, String email, String password){

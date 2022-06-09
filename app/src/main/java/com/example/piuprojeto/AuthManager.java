@@ -6,6 +6,8 @@ package com.example.piuprojeto;
  Recuperar senha
 */
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 
@@ -39,7 +41,7 @@ public class AuthManager {
 		this.auth = FirebaseAuth.getInstance();
         // firebaseDatabase = FirebaseDatabase.getInstance();
         // firebaseDatabase.setPersistenceEnabled(true);
-
+		Log.d("AuthManager", "newInstance:sucess");
         this.usersNode = firebaseDatabase.getReference().child("users");
     }
 
@@ -53,7 +55,7 @@ public class AuthManager {
                 	usersNode.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
 			            @Override
 			            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-			            	User userLogin = dataSnapshot.getValue(User.class); 
+			            	User userLogin = dataSnapshot.getValue(User.class);
 		                    user.setUsername(userLogin.getUsername());
 
 		                    callbackAuth.onSucess();
@@ -63,43 +65,53 @@ public class AuthManager {
 			            public void onCancelled(@NonNull DatabaseError databaseError) {
 			            }
 			        });
-                	
+
                 	user.setUid(currentUser.getUid());
 
 					// setUser(userLogin);
-					
+
                 }
                 else {
                     callbackAuth.onFailure();
-                }            
+                }
             }
         });
 
 	}
 
 	public void newUser(String name, String email, String password){
-		auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+		Log.d("AuthManager", "newUserWithoutCallback:enterMethodCall");
+
+		FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+				Log.d("AuthManager", "newUserWithoutCallback:enterOnComplete");
                 if(task.isSuccessful()){
+					Log.d("AuthManager", "newUserWithoutCallback:sucess");
                 	FirebaseUser newUserFirebase = task.getResult().getUser();
 			        saveNewUserOnDatabase(newUserFirebase.getUid(), name);
                 }
             }
         });
+
+		Log.d("AuthManager", "newUserWithoutCallback:exitMethodCall");
+
 	}
 
 	public void newUser(String name, String email, String password, CallbackAuth callbackAuth){
+		Log.d("AuthManager", "newUserWitCallback:enterMethod");
 		auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+				Log.d("AuthManager", "newUserWitCallback:enterOnComplete");
                 if(task.isSuccessful()){
                 	FirebaseUser newUserFirebase = task.getResult().getUser();
 			        saveNewUserOnDatabase(newUserFirebase.getUid(), name);
-
+					Log.d("AuthManager", "newUserWitCallback:sucess");
 			        callbackAuth.onSucess();
                 }else{
                 	callbackAuth.onFailure();
+					Log.d("AuthManager", "newUserWitCallback:failure");
                 }
             }
         });

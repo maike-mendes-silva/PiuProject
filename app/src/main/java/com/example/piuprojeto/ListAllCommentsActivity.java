@@ -29,7 +29,7 @@ public class ListAllCommentsActivity extends ListActivity {
         setContentView(R.layout.list_all_comments_activity);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase.setPersistenceEnabled(true);
+//        firebaseDatabase.setPersistenceEnabled(true);
 
         DatabaseReference commentsNode = firebaseDatabase.getReference().child("comments");
         subscribeQueryOnValueEventListener(commentsNode);

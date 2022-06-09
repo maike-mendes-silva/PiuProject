@@ -36,7 +36,7 @@ public class RecUserActivity extends AppCompatActivity implements View.OnClickLi
         buttonRec.setOnClickListener(this); 
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase.setPersistenceEnabled(true);
+//        firebaseDatabase.setPersistenceEnabled(true);
 
         authManager =  new AuthManager(firebaseDatabase);
 
@@ -54,7 +54,7 @@ public class RecUserActivity extends AppCompatActivity implements View.OnClickLi
             public void onSucess() {
                 Context context = getApplicationContext();
                 CharSequence text = "Email de recuperação enviado!";
-                int duration = Toast.LENGTH_LONG;
+                int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
@@ -65,7 +65,7 @@ public class RecUserActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onFailure(){
                 Context context = getApplicationContext();
-                CharSequence text = "Verifique o email!";
+                CharSequence text = "Verifique o email ou conexão!";
                 int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(context, text, duration);

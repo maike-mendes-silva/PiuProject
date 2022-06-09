@@ -33,7 +33,7 @@ public class NewCommentActivity extends AppCompatActivity {
         editTextComment = findViewById(R.id.textInputEditTextNCA);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase.setPersistenceEnabled(true);
+//        firebaseDatabase.setPersistenceEnabled(true);
 
         commentManager = new CommentManager(firebaseDatabase);
 

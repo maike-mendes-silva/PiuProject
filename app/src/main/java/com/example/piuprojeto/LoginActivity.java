@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -62,13 +63,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onSucess() {
                 // Mandar para selector de telas (All commments ou user comments)
+                Context context = getApplicationContext();
+                CharSequence text = "Login Feito";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
                 sendToActivity(SelectActivity.class);
             };
 
             @Override
             public void onFailure(){
                 Context context = getApplicationContext();
-                CharSequence text = "Verifique os dados!";
+                CharSequence text = "Verifique os dados ou conexão!";
                 int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(context, text, duration);
