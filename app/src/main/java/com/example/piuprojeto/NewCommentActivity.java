@@ -31,7 +31,12 @@ public class NewCommentActivity extends AppCompatActivity {
         buttonCriar = findViewById(R.id.buttonNCA);
 
         editTextComment = findViewById(R.id.textInputEditTextNCA);
-
+        buttonCriar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionNew();
+            }
+        });
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 //        firebaseDatabase.setPersistenceEnabled(true);
 

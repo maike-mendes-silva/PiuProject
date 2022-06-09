@@ -26,7 +26,7 @@ public class ListAllCommentsActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_all_comments_activity);
+        //setContentView(R.layout.list_all_comments_activity);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 //        firebaseDatabase.setPersistenceEnabled(true);
