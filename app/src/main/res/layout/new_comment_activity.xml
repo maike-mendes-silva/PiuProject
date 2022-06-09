@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout6"
+    tools:context=".NewCommentActivity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#292929">
 
     <TextView
         android:id="@+id/textView2NCA"
@@ -13,7 +15,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:text="Preencha o campo abaixo com o comentário que deseja publicar."
-        android:textColor="#333333"
+        android:textColor="#fefefe"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewNCA" />
@@ -25,22 +27,28 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="52dp"
         android:text="Criar comentário"
-        android:textColor="#000000"
+        android:textColor="#F2CB05"
         android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutNCA"
-        android:layout_width="409dp"
+        android:layout_width="365dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2NCA">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditTextNCA"
-            android:layout_width="match_parent"
+            android:layout_width="365dp"
             android:layout_height="wrap_content"
             android:hint="Insira seu comentário" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -51,8 +59,10 @@
         android:layout_height="80dp"
         android:layout_marginStart="84dp"
         android:layout_marginTop="204dp"
+        android:backgroundTint="#038C5A"
         android:text="Criar comentário"
         android:textSize="20dp"
+        app:cornerRadius="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNCA" />
 </androidx.constraintlayout.widget.ConstraintLayout>

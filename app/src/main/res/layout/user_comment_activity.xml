@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserCommentActivity">
+    tools:context=".UserCommentActivity"
+    android:background="#292929">
 
     <TextView
         android:id="@+id/textView2UCA"
@@ -13,7 +14,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:text="Edite seu comentário ou delete-o. "
-        android:textColor="#333333"
+        android:textColor="#fefefe"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewUCA" />
@@ -25,45 +26,55 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="52dp"
         android:text="Meu comentário"
-        android:textColor="#000000"
+        android:textColor="#F2CB05"
         android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutUCA"
-        android:layout_width="409dp"
+        android:layout_width="365dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="196dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditTextUCA"
-            android:layout_width="match_parent"
+            android:layout_width="365dp"
             android:layout_height="wrap_content"
             android:hint="Comentário" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/button2UCA"
-        android:layout_width="162dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="226dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#038C5A"
         android:text="Deletar"
         android:textSize="20sp"
+        app:cornerRadius="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonUCA" />
 
     <Button
         android:id="@+id/buttonUCA"
-        android:layout_width="162dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="124dp"
+        android:layout_width="226dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="92dp"
         android:layout_marginTop="188dp"
+        android:backgroundTint="#038C5A"
         android:text="Salvar edição"
         android:textSize="20sp"
+        app:cornerRadius="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutUCA" />
 </androidx.constraintlayout.widget.ConstraintLayout>

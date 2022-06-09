@@ -28,10 +28,10 @@
         android:layout_width="365dp"
         android:layout_height="51dp"
         android:layout_marginTop="156dp"
-        app:boxCornerRadiusBottomEnd="50dp"
-        app:boxCornerRadiusBottomStart="50dp"
-        app:boxCornerRadiusTopEnd="50dp"
-        app:boxCornerRadiusTopStart="50dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLA">
@@ -49,10 +49,10 @@
         android:layout_width="365dp"
         android:layout_height="51dp"
         android:layout_marginTop="48dp"
-        app:boxCornerRadiusBottomEnd="50dp"
-        app:boxCornerRadiusBottomStart="50dp"
-        app:boxCornerRadiusTopEnd="50dp"
-        app:boxCornerRadiusTopStart="50dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutLA">
@@ -74,7 +74,7 @@
         android:text="LOGIN"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:cornerRadius="60px"
+        app:cornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2LA" />
@@ -87,7 +87,7 @@
         android:layout_marginTop="28dp"
         android:backgroundTint="#038C5A"
         android:text="Criar cadastro"
-        app:cornerRadius="60px"
+        app:cornerRadius="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLA" />
 
@@ -99,7 +99,7 @@
         android:layout_marginEnd="36dp"
         android:backgroundTint="#038C5A"
         android:text="Recuperar senha"
-        app:cornerRadius="60px"
+        app:cornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLA" />
 

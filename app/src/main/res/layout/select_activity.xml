@@ -5,7 +5,33 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".SelectActivity"
     android:background="#292929">
+
+    <TextView
+        android:id="@+id/textView2NUA3"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Selecione a opção desejada"
+        android:textColor="#fefefe"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
+        android:text="Menu"
+        android:textColor="#F2CB05"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonSA"
@@ -15,7 +41,7 @@
         android:backgroundTint="#038C5A"
         android:text="Comentários"
         android:textSize="24sp"
-        app:cornerRadius="50dp"
+        app:cornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,11 +51,11 @@
         android:id="@+id/button2SA"
         android:layout_width="256dp"
         android:layout_height="80dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="84dp"
         android:backgroundTint="#038C5A"
         android:text="Meus Comentários"
         android:textSize="24sp"
-        app:cornerRadius="50dp"
+        app:cornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,15 +65,15 @@
         android:id="@+id/button3SA"
         android:layout_width="256dp"
         android:layout_height="80dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="84dp"
         android:backgroundTint="#038C5A"
         android:text="Criar comentário"
         android:textSize="24sp"
-        app:cornerRadius="50dp"
+        app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2SA"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.06" />
 </androidx.constraintlayout.widget.ConstraintLayout>
